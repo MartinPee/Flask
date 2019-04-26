@@ -1,0 +1,25 @@
+deploy.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demokubregister-deployment
+  labels:
+    app: demokubregister
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demokubregister
+  template:
+    metadata:
+      labels:
+        app: demokubregister
+    spec:
+      containers:
+      - name: demokubregister
+        image: demokubregister.azurecr.io/myapp:latest
+        ports:
+        - containerPort: 4000
+      imagePullSecrets:
+      - name: deploy-auth

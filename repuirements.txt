@@ -1,0 +1,5 @@
+requirements.txt
+
+Flask==1.0.2
+jsonify==0.5
+psutil==5.6.1
